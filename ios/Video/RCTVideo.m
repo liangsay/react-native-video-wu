@@ -97,7 +97,7 @@ static int const RCTVideoUnset = -1;
 {
   if ((self = [super init])) {
     _eventDispatcher = eventDispatcher;
-      _automaticallyWaitsToMinimizeStalling = YES;
+	  _automaticallyWaitsToMinimizeStalling = YES;
     _playbackRateObserverRegistered = NO;
     _isExternalPlaybackActiveObserverRegistered = NO;
     _playbackStalled = NO;
@@ -156,9 +156,9 @@ static int const RCTVideoUnset = -1;
   viewController.showsPlaybackControls = YES;
   viewController.rctDelegate = self;
   viewController.preferredOrientation = _fullscreenOrientation;
+  
   viewController.view.frame = self.bounds;
   viewController.player = player;
-    
   return viewController;
 }
 
@@ -1036,8 +1036,8 @@ static int const RCTVideoUnset = -1;
 
 - (void)setAutomaticallyWaitsToMinimizeStalling:(BOOL)waits
 {
-    _automaticallyWaitsToMinimizeStalling = waits;
-    _player.automaticallyWaitsToMinimizeStalling = waits;
+	_automaticallyWaitsToMinimizeStalling = waits;
+	_player.automaticallyWaitsToMinimizeStalling = waits;
 }
 
 
@@ -1420,7 +1420,6 @@ static int const RCTVideoUnset = -1;
       UIViewController *viewController = [self reactViewController];
       [viewController addChildViewController:_playerViewController];
       [self addSubview:_playerViewController.view];
-        _playerViewController.view.backgroundColor = [UIColor redColor];
     }
       
     [_playerViewController addObserver:self forKeyPath:readyForDisplayKeyPath options:NSKeyValueObservingOptionNew context:nil];
@@ -1436,13 +1435,13 @@ static int const RCTVideoUnset = -1;
     _playerLayer = [AVPlayerLayer playerLayerWithPlayer:_player];
     _playerLayer.frame = self.bounds;
     _playerLayer.needsDisplayOnBoundsChange = YES;
-      
+    
     // to prevent video from being animated when resizeMode is 'cover'
     // resize mode must be set before layer is added
     [self setResizeMode:_resizeMode];
     [_playerLayer addObserver:self forKeyPath:readyForDisplayKeyPath options:NSKeyValueObservingOptionNew context:nil];
     _playerLayerObserverSet = YES;
-      
+    
     [self.layer addSublayer:_playerLayer];
     self.layer.needsDisplayOnBoundsChange = YES;
     #if TARGET_OS_IOS
@@ -1593,8 +1592,6 @@ static int const RCTVideoUnset = -1;
 - (void)layoutSubviews
 {
   [super layoutSubviews];
-    self.backgroundColor = UIColor.blackColor;
-    _playerViewController.view.backgroundColor = UIColor.blackColor;
   if( _controls )
   {
     _playerViewController.view.frame = self.bounds;
@@ -1609,8 +1606,6 @@ static int const RCTVideoUnset = -1;
     [CATransaction begin];
     [CATransaction setAnimationDuration:0];
     _playerLayer.frame = self.bounds;
-      
-      _playerLayer.backgroundColor = UIColor.blackColor.CGColor;
     [CATransaction commit];
   }
 }
