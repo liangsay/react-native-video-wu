@@ -1,7 +1,7 @@
 {
     "name": "react-native-video-wu",
     "version": "5.2.4",
-    "description": "A <Video /> element for react-native",
+    "description": "修改了原生播放器背景色为黑色",
     "main": "Video.js",
     "license": "MIT",
     "author": "Brent Vatne <brentvatne@gmail.com> (https://github.com/brentvatne)",
